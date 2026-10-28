@@ -1,0 +1,23 @@
+[project]
+name = "build-wagtail"
+version = "0.1.0"
+description = "Build a wagtail project into an easy to run Docker deployment with one command."
+readme = "README.md"
+authors = [{ name = "Kailash Nadh", email = "kailash@nadh.in" }]
+requires-python = ">=3.9"
+dependencies = []
+keywords = ["wagtail", "django", "docker", "deployment"]
+classifiers = [
+    "Environment :: Console",
+    "Framework :: Django",
+    "Framework :: Wagtail",
+    "Programming Language :: Python :: 3",
+    "Topic :: System :: Installation/Setup",
+]
+
+[project.scripts]
+build-wagtail = "build_wagtail:main"
+
+[build-system]
+requires = ["uv_build>=0.8,<0.14"]
+build-backend = "uv_build"
