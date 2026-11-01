@@ -49,3 +49,13 @@ The tool generates:
 
 - `.env`: secret key, hostnames and the container user, which is the project directory's owner. If it already exists, it's not overwritten.
 - `.wagtail-docker/` and `compose.yml` (regenerated on every run).
+
+### Upgrading wagtail
+```shell
+# Run uv inside the container and update wagtail
+docker compose exec -e UV_CACHE_DIR=/tmp/uv-cache web uv add --no-sync --upgrade-package wagtail 'wagtail>=0'
+
+# Rebuild and re-start
+docker compose build web
+docker compose up -d --no-deps web
+```
